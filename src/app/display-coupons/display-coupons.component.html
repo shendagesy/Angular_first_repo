@@ -1,0 +1,118 @@
+<!-- Nav tabs -->
+<div class="container mt-3">
+  <ul class="nav nav-tabs text-center font-weight-bold no-gutters">
+
+    <li class="nav-item col-md-4 col-4">
+      <a class="nav-link active" data-toggle="tab" href="#AllCoupons">All Coupons</a>
+    </li>
+
+    <li class="nav-item col-md-4 col-4">
+      <a class="nav-link" data-toggle="tab" href="#activeCoupons">Active Coupons</a>
+    </li>
+
+    <li class="nav-item col-md-4 col-4">
+      <a class="nav-link" data-toggle="tab" href="#expireCoupons">Expire Coupons</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content text-center">
+    <div id="AllCoupons" class="container tab-pane active"><br>
+      <table>
+        <tr>
+          <th>Index</th>
+          <th>ID</th>
+          <th>Active Image</th>
+          <th>Description</th>
+          <th>Coupon Code</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="let img of displayImage; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td> {{ img.id }} </td>
+          <td> <img [src]='img.image' height="80px" width="100px"> </td>
+          <td>{{ img.description }}</td>
+          <td>{{ img.couponCode }}</td>
+          <td><a href="#"> Update </a></td>
+          <td><a href="#"> Delete </a></td>
+        </tr>
+      </table>
+    </div>
+    <div id="activeCoupons" class="container tab-pane fade"><br>
+      <table>
+        <tr>
+          <th>Index</th>
+          <th>ID</th>
+          <th>Active Image</th>
+          <th>Description</th>
+          <th>Coupon Code</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="let img of  displayImage; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td> {{ img.id }} </td>
+          <td> <img [src]='img.image' height="80px" width="100px"> </td>
+          <td>{{ img.description }}</td>
+          <td>{{ img.couponCode }}</td>
+          <td><a href="#"> Update </a></td>
+          <td><a href="#"> Delete </a></td>
+        </tr>
+      </table>
+    </div>
+    <div id="expireCoupons" class="container tab-pane fade"><br>
+      <table>
+        <tr>
+          <th>Index</th>
+          <th>ID</th>
+          <th>Active Image</th>
+          <th>Description</th>
+          <th>Coupon Code</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="let img of  displayImage; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td> {{ img.id }} </td>
+          <td> <img [src]='img.image' height="80px" width="100px"> </td>
+          <td>{{ img.description }}</td>
+          <td>{{ img.couponCode }}</td>
+          <td><a href="#"> Update </a></td>
+          <td><a href="#"> Delete </a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div>
+  <h3 class="text-center text-info">
+    All Coupons
+  </h3>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <div>
+        <button class="btn btn-success" routerLink="/DisplayCoupons/ActiveCoupons">
+          <h6><strong>Active Coupons</strong></h6>
+        </button>
+    </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <div>
+        <button class="btn btn-danger" routerLink="/DisplayCoupons/ExpireCoupons">
+          <h6><strong>Expire Coupons</strong></h6>
+        </button>
+    </div>
+
+    </div>
+  </div>
+</div> -->

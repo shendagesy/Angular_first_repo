@@ -1,0 +1,321 @@
+<form #CouponForm="ngForm" ngNativeValidate (ngSubmit)="CouponSubmit()">
+  <div>
+    <div class="card">
+      <!-- form header -->
+      <div class="card-header">
+        <h3 class="card-title text-center">Coupon Registration</h3>
+      </div>
+      <!-- form body -->
+      <div class="card-body">
+        <div class="form-group">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label for="coupon_provider"><strong>Coupon Provider :</strong></label>
+              </div>
+              <div> <input id="coupon_provider" type="text" class="form-control" name="coupon_provider"
+                  [(ngModel)]="coupon_provider" required coupon_provider #coupon_providerControl="ngModel">
+              </div>
+              <!-- <div class="text-danger">
+            coupon provider not valid
+          </div> -->
+              <div>
+                <span class="help-block text-danger"
+                  *ngIf="coupon_providerControl.touched && coupon_providerControl.invalid">
+                  Coupon Provider Is Required</span>
+                <!-- <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.required && emailControl.touched">Email Address Is Required</span>
+              <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.email && emailControl.touched">Invalid Email Address</span> -->
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div>
+                <label for="coupon_catagory"><strong>Coupon Catagory :</strong></label>
+              </div>
+              <div> <input id="coupon_catagory" type="text" class="form-control" name="coupon_catagory"
+                  [(ngModel)]="coupon_catagory" required coupon_catagory #coupon_catagoryControl="ngModel">
+              </div>
+              <!-- <div class="text-danger">
+              Coupon Catagory not valid
+            </div> -->
+              <div>
+                <span class="help-block text-danger"
+                  *ngIf="coupon_catagoryControl.touched && coupon_catagoryControl.invalid">
+                  Coupon Catagory Is Required</span>
+                <!-- <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.required && emailControl.touched">Email Address Is Required</span>
+                <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.email && emailControl.touched">Invalid Email Address</span> -->
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label for="coupon_subcatagory"><strong>Coupon Subcatagory :</strong></label>
+              </div>
+              <div>
+                <input id="coupon_subcatagory" type="text" class="form-control" name="coupon_subcatagory"
+                  [(ngModel)]="coupon_subcatagory" required coupon_subcatagory #coupon_subcatagoryControl="ngModel">
+              </div>
+              <!-- 
+                  <div class="text-danger">
+                  Coupon Subcatagory not valid
+                  </div> 
+              -->
+              <div>
+                <span class="help-block text-danger"
+                  *ngIf="coupon_subcatagoryControl.touched && coupon_subcatagoryControl.invalid">
+                  Coupon Subcatagory Is Required
+                </span>
+                <!--
+                    <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.required && emailControl.touched">Email Address Is Required</span>
+                    <span class="help-block" *ngIf="emailControl.errors && emailControl.errors.email && emailControl.touched">Invalid Email Address</span>
+                -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label for="ImgInp"><strong> Select Image If Not Click Creat Image:</strong></label>
+              </div>
+              <div class="input-group">
+                <div class="custom-file">
+                  <div>
+                    <input id="ImgInp" type="file" class="form-control custom-file-input" name="fileupload"
+                      [(ngModel)]="fileupload" required fileupload #fileuploadControl="ngModel"
+                      accept=".png, .jpg, .jpeg .gif">
+                  </div>
+
+                  <label class="custom-file-label" for="ImgInp">Choose file</label>
+                </div>
+
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" data-toggle="modal"
+                    data-target="#ImgModal">Creat Image</button>
+                </div>
+                <div>
+                  <span class="help-block text-danger" *ngIf="fileuploadControl.touched && fileuploadControl.invalid">
+                    Image Is Required
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <label for="pubdate"><strong> Publish Date :</strong></label>
+              </div>
+              <div>
+                <input id="pubdate" type="date" class="form-control datepicker" name="pubdate" required
+                  parsley-maxlength="6" placeholder="From Date" [(ngModel)]="pubdate" required pubdate
+                  #pubdateControl="ngModel">
+              </div>
+              <div>
+                <span class="help-block text-danger" *ngIf="pubdateControl.touched && pubdateControl.invalid">
+                  Publish Date Is Required
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div>
+                <label for="expdate"><strong> Expiry Date :</strong></label>
+              </div>
+              <div>
+                <input id="expdate" type="date" class="form-control datepicker" name="expdate" required
+                  parsley-maxlength="4" placeholder="From Date" [(ngModel)]="expdate" required expdate
+                  #expdateControl="ngModel">
+              </div>
+              <div>
+                <span class="help-block text-danger" *ngIf="expdateControl.touched && expdateControl.invalid">
+                  Expiry Date Is Required
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+
+              <div>
+                <label for="Textarea"><strong>Description :</strong> </label>
+              </div>
+              <div>
+                <textarea class="form-control" id="Textarea" name="Textarea" rows="5" required [(ngModel)]="Textarea"
+                  required Textarea #TextareaControl="ngModel"> Describe coupons here </textarea>
+              </div>
+            </div>
+            <div>
+              <span>
+                <span class="help-block text-danger" *ngIf="TextareaControl.touched && TextareaControl.invalid">
+                  Description Is Required
+                </span>
+              </span>
+            </div>
+
+            <div class="col">
+              <div class="row-md-6">
+                <div>
+                  <label for="regdate"><strong> Registration Date :</strong></label>
+                </div>
+                <div>
+                  <input id="regdate" type="date" class="form-control datepicker" name="regdate" required
+                    parsley-maxlength="4" placeholder="From Date" [(ngModel)]="regdate" required regdate
+                    #regdateControl="ngModel">
+                </div>
+                <div>
+                  <span class="help-block text-danger" *ngIf="regdateControl.touched && regdateControl.invalid">
+                    Registration Date Is Required
+                  </span>
+                </div>
+              </div>
+              <br>
+              <div class="row-md-6">
+                <div>
+                  <label for="locname"> <strong>Location Name : </strong></label>
+                </div>
+                <div>
+                  <input id="locname" name="locname" type="text" class="form-control" [(ngModel)]="locname" required
+                    locname #locnameControl="ngModel">
+                </div>
+                <div>
+                  <span class="help-block text-danger" *ngIf="locnameControl.touched && locnameControl.invalid">
+                    Location Name Is Required
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- form footer -->
+      <div class="card-footer text-center">
+        <button type="submit" [disabled]="!CouponForm.valid" class="btn btn-primary"><strong>Register Coupon</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<!-- <div class="col-md-6">
+  <div>
+    <label for="ImgInp"><strong> Select Image :</strong></label>
+  </div>
+  <div class="input-group">
+    <div class="custom-file">
+      <input id="ImgInp" type="file" class="form-control custom-file-input" [(ngModel)]="fileupload" required fileupload
+        #fileuploadControl="ngModel" accept=".png, .jpg, .jpeg .gif">
+      <label class="custom-file-label" for="ImgInp">Choose file</label>
+    </div>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+    <div>
+      <span class="help-block text-danger" *ngIf="fileuploadControl.touched && fileuploadControl.invalid">
+        Image Is Required
+      </span>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ImgModal" tabindex="-1" role="dialog" aria-labelledby="ImgModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl bg-white" role="document">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="modal-content bg-muted">
+          <div class="text-center text-dark">
+            <h4>Create Image</h4>
+          </div>
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="ImgModalLabel">{{title}}</h5> -->
+            <div>
+              <label for="ImgModalLabel"><strong>Title :</strong></label>
+            </div>
+            <div>
+              <input class="form-control modal-title" id="ImgModalLabel" type="text" [(ngModel)]="title">
+            </div>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="ImgModalDes"><strong>Description:</strong></label>
+            </div>
+            <div>
+              <input class="form-control modal-body" id="ImgModalDes" type="text" [(ngModel)]="description">
+            </div>
+          </div>
+          <div class="modal-footer">
+
+              <div class="modal-header">
+                <div>
+                  <label for="ImgModalCpn"><strong>CouponCode:</strong></label>
+                </div>
+                <div>
+                  <input class="form-control modal-body" id="ImgModalCpn" type="text" [(ngModel)]="couponCode">
+                </div>
+                </div>
+                
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="modal-content bg-muted">
+          <div class="text-center text-dark">
+            <h4>Create Image</h4>
+          </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="ImgModalLabel">{{title}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{description}}
+          </div>
+          <div class="modal-body text-center">
+            {{couponCode}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="modal-content bg-muted">
+      <div class="text-center text-dark">
+        <h4>Create Image</h4>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="ImgModalLabel">Coupon Title Here</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Coupon Description Here
+      </div>
+      <div class="modal-body text-center">
+        Coupon Code Here
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div> -->
+  </div>
+</div>
